@@ -1,14 +1,10 @@
 /* sharePullBuild.js by Jason Duncan
  *
- * Generate links to TeamCity builds/github pull requests in markdown format format
+ * Generate links to TeamCity builds/github pull requests in markdown format for
  * sharing via MS Teams.
  *
- * Installation/Usage:
- * 1. create a bookmark, preferably on the bookmarks toolbar
- * 2. right-click and "Edit..." that bookmark
- * 3. type "javascript:" into the URL box and then paste this whole file (without this comment block)
- * 4. make sure you're at the right page in TC (Dependencies tab of Build & Test Pull Request for your pull)
- * 5. click the thing
+ * Make sure you're visiting the Dependencies tab of Build & Test Pull Request
+ * in TC for your pull.
  */
 
 (()=>{
