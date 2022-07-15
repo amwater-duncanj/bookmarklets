@@ -12,14 +12,18 @@
  */
 
 (()=>{
-  if (!window.location.href.includes('MapCallPullRequests_FullBuild') ||
-      new URLSearchParams(window.location.search).get('buildTab') != 'dependencies') {
+  const params = new URLSearchParams(window.location.search);
+  const buildType = 'MapCallPullRequests_FullBuild';
+  const tab = 'dependencies';
+  const location = window.location.href;
+  if ((!location.includes(buildType) || params.get('buildTab') != tab) &&
+      (params.get('buildTypeId') != buildType || params.get('tab') != tab)) {
     alert('You must be on the "Dependencies" tab of a TC Build & Test Pull Request build for this to work');
     return;
   }
   const pull = document.querySelector('a[data-test-branch-link=true]').text;
   const textArea = document.createElement("textarea");
-  textArea.value = `[${pull}](https://github.com/American-Water/mapcall-monorepo/${pull}) - [passing TC build](${window.location.href})`;
+  textArea.value = `[${pull}](https://github.com/American-Water/mapcall-monorepo/${pull}) - [passing TC build](${location})`;
   textArea.style.position = "fixed";
   textArea.style.left = "-999999px";
   textArea.style.top = "-999999px";
